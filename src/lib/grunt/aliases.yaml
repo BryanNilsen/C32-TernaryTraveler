@@ -1,0 +1,6 @@
+default:
+  - "bgShell"
+  - "eslint"
+  - "http-server"
+  - "browserify"
+  - "watch"
