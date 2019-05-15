@@ -18,6 +18,15 @@ const APIManager = {
       body: JSON.stringify(interestObject)
     }).then(response => response.json());
   },
+  editInterest: function(interestId, editedObject) {
+    return fetch(`${baseURL}/interests/${interestId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(editedObject)
+    }).then(response => response.json());
+  },
   deleteInterest: function(interestId) {
     return fetch(`${baseURL}/interests/${interestId}`, {
       method: "DELETE",

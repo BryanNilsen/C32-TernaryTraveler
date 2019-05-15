@@ -19,8 +19,32 @@ function buildInterestHTML(interest) {
   let interestCost = document.createElement("p");
   let interestReview = document.createElement("p");
 
-  const interestEditBtn = document.createElement("button");
+  let interestEditBtn = document.createElement("button");
   interestEditBtn.textContent = "EDIT";
+  const editDiv = document.createElement("div");
+  interestEditBtn.addEventListener("click", () => {
+    editInterest(interest);
+  });
+
+  function editInterest(interestObject) {
+    let editFieldset = document.createElement("fieldset");
+    if (!editDiv.hasChildNodes()) {
+      interestEditBtn.textContent = "CANCEL";
+      let editName = document.createElement("input");
+      let editDescription = document.createElement("textarea");
+      editName.value = interestObject.name;
+      editDescription.value = interestObject.description;
+      editFieldset.appendChild(editName);
+      editFieldset.appendChild(document.createElement("br"));
+      editFieldset.appendChild(editDescription);
+      editFieldset.appendChild(document.createElement("br"));
+      editDiv.appendChild(editFieldset);
+    } else {
+      editDiv.innerHTML = "";
+      interestEditBtn.textContent = "EDIT";
+    }
+  }
+
   const interestDeleteBtn = document.createElement("button");
   interestDeleteBtn.textContent = "DELETE";
   interestDeleteBtn.addEventListener("click", () => deleteAlert(interest));
@@ -36,6 +60,7 @@ function buildInterestHTML(interest) {
   interestCard.appendChild(interestCost);
   // EDIT & DELETE BUTTONS
   interestCard.appendChild(interestEditBtn);
+  interestCard.appendChild(editDiv);
   interestCard.appendChild(interestDeleteBtn);
 
   if (interest.review != "") {

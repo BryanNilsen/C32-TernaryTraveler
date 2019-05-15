@@ -32,6 +32,14 @@
       "review": "",
       "placeId": 1,
       "id": 2
+    },
+    {
+      "name": "new interest",
+      "description": "this is new",
+      "cost": 123,
+      "review": "",
+      "placeId": 3,
+      "id": 3
     }
   ]
 }
